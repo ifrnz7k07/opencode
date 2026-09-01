@@ -1,38 +1,38 @@
-# opencode
+# OpenCode
 
-An open-source toolkit for building reliable, observable code pipelines.
+OpenCode is an open-source development platform designed for collaborative coding, automated task execution, and infrastructure observability.
 
 ## Features
 
-- Declarative pipeline definitions
-- Built-in health checks and retries
-- Structured logging
-- Pluggable backends
+- **Fast Execution**: Built with low latency and high concurrency in mind.
+- **Reliable Workflows**: Built-in retry mechanisms and health monitoring.
+- **Integrations**: Supports major CI/CD pipelines and alerting systems.
 
 ## Quick Start
 
 ```bash
-pip install opencode
-opencode init my-pipeline
+# Clone the repository
+git clone https://github.com/anomalyco/opencode.git
+cd opencode
+
+# Start the service
+docker-compose up -d
 ```
 
-## Example
+## Configuration
 
-```yaml
-pipeline:
-  name: example
-  steps:
-    - run: echo "hello"
-      retries: 2
+Set environment variables in `.env`:
+
+```env
+PORT=8080
+LOG_LEVEL=info
+METRICS_ENABLED=true
+HEALTH_CHECK_INTERVAL=30s
 ```
 
-## Documentation
+## Health Checks & Monitoring
 
-See the [docs](docs/) for full API reference.
-
-## Contributing
-
-Feel free to open issues or PRs. We welcome community improvements.
+OpenCode exposes an HTTP health endpoint at `/health` returning `200 OK` with JSON status when ready to serve traffic, suitable for load balancers and orchestrator liveness probes.
 
 ## License
 
